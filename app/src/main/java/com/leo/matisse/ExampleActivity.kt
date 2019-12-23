@@ -17,6 +17,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.gyf.barlibrary.ImmersionBar
+import com.leo.matisse.mymatisse.MyMatisseActivity
+import com.leo.matisse.mymatisse.fragment.MyMediaSelectionFragment
 import com.matisse.Matisse
 import com.matisse.MimeType
 import com.matisse.MimeTypeManager
@@ -27,6 +29,7 @@ import com.matisse.entity.IncapableCause
 import com.matisse.listener.MFunction
 import com.matisse.listener.NoticeConsumer
 import com.matisse.ui.activity.BaseActivity
+import com.matisse.ui.activity.matisse.MatisseActivity
 import com.matisse.utils.MediaStoreCompat
 import com.matisse.utils.PathUtils
 import com.matisse.utils.Platform
@@ -323,7 +326,10 @@ class ExampleActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun openMatisse() {
-        selectionCreator?.forResult(ConstValue.REQUEST_CODE_CHOOSE)
+//        selectionCreator?.forResult(ConstValue.REQUEST_CODE_CHOOSE)
+
+        val intent = Intent(this, MyMatisseActivity::class.java)
+        startActivityForResult(intent, ConstValue.REQUEST_CODE_CHOOSE)
     }
 
     private fun setEditText() {
