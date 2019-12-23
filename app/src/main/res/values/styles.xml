@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CustomMatisseStyle" parent="Matisse.Default">
+        <item name="Media.Back.text">@string/back</item>
+        <item name="Media.Sure.text">@string/sure</item>
+        <item name="Media.Preview.text">@string/preview</item>
+        <item name="Media.Original.text">@string/original</item>
+        <item name="Media.Album.text">@string/album</item>
+        <item name="Media.Camera.text">@string/camera</item>
+    </style>
+</resources>
