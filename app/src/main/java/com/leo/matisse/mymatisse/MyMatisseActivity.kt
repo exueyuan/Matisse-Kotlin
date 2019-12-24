@@ -1,25 +1,22 @@
 package com.leo.matisse.mymatisse
 
+import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.appcompat.app.AppCompatActivity
+import com.leo.matisse.BaseMatisseActivity
 import com.leo.matisse.R
+import com.leo.matisse.albumlist.AlbumListActivity
 import com.leo.matisse.mymatisse.fragment.MyMediaSelectionFragment
 import com.matisse.entity.Album
+import com.matisse.entity.IncapableCause
 import com.matisse.model.AlbumCallbacks
-import com.matisse.model.SelectedItemCollection
-import com.matisse.ui.activity.matisse.AlbumFolderSheetHelper
-import com.matisse.ui.adapter.FolderItemMediaAdapter
-import com.matisse.ui.view.FolderBottomSheet
-import com.matisse.ui.view.MediaSelectionFragment
 import com.matisse.utils.UIUtils
 import kotlinx.android.synthetic.main.activity_my_matisse.*
 
-class MyMatisseActivity : AppCompatActivity() {
+class MyMatisseActivity : BaseMatisseActivity() {
 
-    var instanceState: Bundle? = null
     private lateinit var albumLoadHelper: MyAlbumLoadHelper
     private var allAlbum: Album? = null
 
@@ -33,6 +30,8 @@ class MyMatisseActivity : AppCompatActivity() {
             }
 
             override fun onAlbumLoad(cursor: Cursor) {
+                //cursor获取相册
+
                 //在主线程中调用
                 Handler(Looper.getMainLooper()).post {
                     //获取到所有的相册
@@ -51,7 +50,14 @@ class MyMatisseActivity : AppCompatActivity() {
         })
 
         tv_album.setOnClickListener {
+            if (allAlbum?.isAll() == true && allAlbum?.isEmpty() == true) {
+                UIUtils.handleCause(this, IncapableCause(getString(com.matisse.R.string.empty_album)))
+                return@setOnClickListener
+            }
 
+
+            val intent = Intent(this, AlbumListActivity::class.java)
+            startActivity(intent)
         }
     }
 

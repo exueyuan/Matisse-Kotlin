@@ -1,11 +1,12 @@
 package com.leo.matisse.mymatisse
 
 import android.os.Bundle
+import com.leo.matisse.BaseMatisseActivity
 import com.matisse.model.AlbumCallbacks
 import com.matisse.model.AlbumCollection
 
 class MyAlbumLoadHelper(
-        private var activity: MyMatisseActivity, private var albumLoadCallback: AlbumCallbacks
+        private var activity: BaseMatisseActivity, private var albumLoadCallback: AlbumCallbacks
 ) {
 
     private var albumCollection: AlbumCollection? = null
