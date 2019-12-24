@@ -11,7 +11,7 @@ import com.matisse.loader.AlbumLoader
 class Album() : Parcelable {
     private var id = ""
     private var coverUri: Uri? = null
-    private var displayName = ""
+    var displayName = ""
     private var count: Long = 0
     private var isCheck = false
 
@@ -106,4 +106,6 @@ class Album() : Parcelable {
             cursor.getLong(cursor.getColumnIndex(AlbumLoader.COLUMN_COUNT))
         )
     }
+
+
 }

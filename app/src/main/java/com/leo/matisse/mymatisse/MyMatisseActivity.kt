@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.leo.matisse.R
+import com.leo.matisse.mymatisse.fragment.MyMediaSelectionFragment
 import com.matisse.entity.Album
 import com.matisse.model.AlbumCallbacks
 import com.matisse.model.SelectedItemCollection
@@ -16,51 +17,44 @@ import com.matisse.ui.view.MediaSelectionFragment
 import com.matisse.utils.UIUtils
 import kotlinx.android.synthetic.main.activity_my_matisse.*
 
-class MyMatisseActivity : AppCompatActivity(),
-        MediaSelectionFragment.SelectionProvider {
-
-    override fun provideSelectedItemCollection(): SelectedItemCollection {
-        return selectedCollection
-    }
+class MyMatisseActivity : AppCompatActivity() {
 
     var instanceState: Bundle? = null
-    private lateinit var selectedCollection: SelectedItemCollection
-    private lateinit var albumFolderSheetHelper: AlbumFolderSheetHelper
     private lateinit var albumLoadHelper: MyAlbumLoadHelper
     private var allAlbum: Album? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_matisse)
-        selectedCollection = SelectedItemCollection(this).apply { onCreate(instanceState) }
         //加载相册
-        albumLoadHelper = MyAlbumLoadHelper(this, albumCallback)
+        albumLoadHelper = MyAlbumLoadHelper(this, object : AlbumCallbacks {
+            override fun onAlbumStart() {
+                // do nothing
+            }
 
-        albumFolderSheetHelper = AlbumFolderSheetHelper(this, albumSheetCallback)
-    }
-
-    //加载相册返回的callback
-    private var albumCallback = object : AlbumCallbacks {
-        override fun onAlbumStart() {
-            // do nothing
-        }
-
-        override fun onAlbumLoad(cursor: Cursor) {
-            albumFolderSheetHelper.setAlbumFolderCursor(cursor)
-
-            Handler(Looper.getMainLooper()).post {
-                if (cursor.moveToFirst()) {
-                    allAlbum = Album.valueOf(cursor).apply {
-                        onAlbumSelected(this)
+            override fun onAlbumLoad(cursor: Cursor) {
+                //在主线程中调用
+                Handler(Looper.getMainLooper()).post {
+                    //获取到所有的相册
+                    //回到首位
+                    if (cursor.moveToFirst()) {
+                        allAlbum = Album.valueOf(cursor).apply {
+                            onAlbumSelected(this)
+                        }
+                        tv_album.text = allAlbum?.displayName
                     }
                 }
             }
-        }
 
-        override fun onAlbumReset() {
-            albumFolderSheetHelper.clearFolderSheetDialog()
+            override fun onAlbumReset() {
+            }
+        })
+
+        tv_album.setOnClickListener {
+
         }
     }
+
 
     //处理加载后的效果
     private fun onAlbumSelected(album: Album) {
@@ -70,30 +64,21 @@ class MyMatisseActivity : AppCompatActivity(),
         } else {
             UIUtils.setViewVisible(false, empty_view)
             UIUtils.setViewVisible(true, fl_fragment)
-            val fragment = MediaSelectionFragment.newInstance(album)
+            val fragment = MyMediaSelectionFragment.newInstance(album)
             supportFragmentManager.beginTransaction()
-                    .replace(fl_fragment.id, fragment, MediaSelectionFragment::class.java.simpleName)
+                    .replace(fl_fragment.id, fragment, MyMediaSelectionFragment::class.java.simpleName)
                     .commitAllowingStateLoss()
         }
     }
 
-    private var albumSheetCallback = object : FolderBottomSheet.BottomSheetCallback {
-        override fun initData(adapter: FolderItemMediaAdapter) {
-            adapter.setListData(albumFolderSheetHelper.readAlbumFromCursor())
-        }
-
-        override fun onItemClick(album: Album, position: Int) {
-            /*if (!albumFolderSheetHelper.setLastFolderCheckedPosition(position)) return
-            albumLoadHelper.setStateCurrentSelection(position)
-
-            button_apply.text = album.getDisplayName(activity)
-            onAlbumSelected(album)*/
-        }
-    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        selectedCollection.onSaveInstanceState(outState)
         albumLoadHelper.onSaveInstanceState(outState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        albumLoadHelper.onDestroy()
     }
 }
