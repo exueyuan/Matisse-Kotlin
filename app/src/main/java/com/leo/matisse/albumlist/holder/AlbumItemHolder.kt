@@ -6,7 +6,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.leo.matisse.R
 import com.matisse.entity.Album
 
@@ -19,7 +18,7 @@ class AlbumItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
     }
 
-    fun onBindViewHolder(album: Album) {
+    fun onBindViewHolder(album: Album, clickCallback: ((Album) -> Unit)?) {
         val tv_title = itemView.findViewById<TextView>(R.id.tv_title)
         val tv_count = itemView.findViewById<TextView>(R.id.tv_count)
         val iv_image = itemView.findViewById<ImageView>(R.id.iv_image)
@@ -30,5 +29,8 @@ class AlbumItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 .asBitmap()
                 .load(album.getCoverPath())
                 .into(iv_image)
+        itemView.setOnClickListener {
+            clickCallback?.invoke(album)
+        }
     }
 }

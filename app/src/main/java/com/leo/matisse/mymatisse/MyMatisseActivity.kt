@@ -1,5 +1,6 @@
 package com.leo.matisse.mymatisse
 
+import android.app.Activity
 import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
@@ -16,6 +17,9 @@ import com.matisse.utils.UIUtils
 import kotlinx.android.synthetic.main.activity_my_matisse.*
 
 class MyMatisseActivity : BaseMatisseActivity() {
+    companion object {
+        const val REQUEST_CODE_ALBUM = 0
+    }
 
     private lateinit var albumLoadHelper: MyAlbumLoadHelper
     private var allAlbum: Album? = null
@@ -57,7 +61,7 @@ class MyMatisseActivity : BaseMatisseActivity() {
 
 
             val intent = Intent(this, AlbumListActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_ALBUM)
         }
     }
 
@@ -70,6 +74,7 @@ class MyMatisseActivity : BaseMatisseActivity() {
         } else {
             UIUtils.setViewVisible(false, empty_view)
             UIUtils.setViewVisible(true, fl_fragment)
+            tv_album.text = album.displayName
             val fragment = MyMediaSelectionFragment.newInstance(album)
             supportFragmentManager.beginTransaction()
                     .replace(fl_fragment.id, fragment, MyMediaSelectionFragment::class.java.simpleName)
@@ -86,5 +91,15 @@ class MyMatisseActivity : BaseMatisseActivity() {
     override fun onDestroy() {
         super.onDestroy()
         albumLoadHelper.onDestroy()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_ALBUM && resultCode == Activity.RESULT_OK) {
+            val album = data?.getParcelableExtra<Album>(AlbumListActivity.RESULT_INTENT_ALBUM)
+            if (album != null) {
+                onAlbumSelected(album)
+            }
+        }
     }
 }

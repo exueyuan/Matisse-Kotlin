@@ -1,10 +1,13 @@
 package com.leo.matisse.albumlist
 
+import android.app.Activity
+import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.Parcelable
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,10 +22,19 @@ import kotlinx.android.synthetic.main.activity_album_list.*
 import kotlinx.android.synthetic.main.fragment_my_media_selection.*
 
 class AlbumListActivity : BaseMatisseActivity() {
+    companion object {
+        const val RESULT_INTENT_ALBUM = "result_intent_album"
+    }
     private lateinit var albumLoadHelper: MyAlbumLoadHelper
 
     val albumList = arrayListOf<Album>()
-    var albumListAdapter = AlbumListAdapter(albumList)
+    var albumListAdapter = AlbumListAdapter(albumList, clickCallback = { album ->
+        //设置退出数据
+        val resultData = Intent()
+        resultData.putExtra(RESULT_INTENT_ALBUM, album)
+        setResult(Activity.RESULT_OK, resultData)
+        finish()
+    })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
