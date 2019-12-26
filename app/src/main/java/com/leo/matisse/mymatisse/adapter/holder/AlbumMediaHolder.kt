@@ -1,12 +1,14 @@
 package com.leo.matisse.mymatisse.adapter.holder
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.leo.matisse.R
+import com.leo.matisse.mymatisse.Utils.CheckedManager
 import com.leo.matisse.mymatisse.view.CheckNumView
 import com.matisse.entity.Item
 
@@ -26,6 +28,11 @@ class AlbumMediaHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 .asBitmap()
                 .load(item.getContentUri())
                 .into(iv_image)
+        //设置数值
+        Log.i("Hahah", ""+CheckedManager.getNum(item))
+        cnv_check.checkedNum = CheckedManager.getNum(item)
+
+
         itemView.setOnClickListener {
             clickItemCallback?.invoke(item)
         }

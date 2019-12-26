@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.leo.matisse.mymatisse.Utils.CheckedManager
 import com.leo.matisse.mymatisse.adapter.MyAlbumMediaAdapter
 import com.matisse.R
 import com.matisse.entity.Album
@@ -23,7 +24,15 @@ class MyMediaSelectionFragment : Fragment() {
     private val albumMediaCollection = AlbumMediaCollection()
 
     private val albumMediaList = arrayListOf<Item>()
-    private val adapter: MyAlbumMediaAdapter = MyAlbumMediaAdapter(albumMediaList)
+    private val adapter: MyAlbumMediaAdapter = MyAlbumMediaAdapter(albumMediaList, checkedCallback = { item, isChecked ->
+        if (isChecked) {
+            CheckedManager.addItem(item)
+        } else {
+            CheckedManager.removeItem(item)
+        }
+
+        updateAdapter()
+    })
     private lateinit var album: Album
 
     companion object {
@@ -76,6 +85,10 @@ class MyMediaSelectionFragment : Fragment() {
         })
         //右边是指是否开启拍照，默认不开启
         albumMediaCollection.load(album, selectionSpec.capture)
+    }
+
+    private fun updateAdapter() {
+        adapter.notifyDataSetChanged()
     }
 
 
