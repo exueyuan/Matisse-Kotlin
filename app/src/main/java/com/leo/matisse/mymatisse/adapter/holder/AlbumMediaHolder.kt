@@ -2,8 +2,10 @@ package com.leo.matisse.mymatisse.adapter.holder
 
 import android.content.Context
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.leo.matisse.R
 import com.matisse.entity.Item
 
@@ -17,7 +19,10 @@ class AlbumMediaHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun onBindViewHolder(item: Item) {
-        val text = itemView.findViewById<TextView>(R.id.text)
-        text.text = item.getContentUri().toString()
+        val iv_image = itemView.findViewById<ImageView>(R.id.iv_image)
+        Glide.with(itemView.context)
+                .asBitmap()
+                .load(item.getContentUri())
+                .into(iv_image)
     }
 }
