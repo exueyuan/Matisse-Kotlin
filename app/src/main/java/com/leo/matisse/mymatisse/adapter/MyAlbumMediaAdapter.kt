@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.leo.matisse.mymatisse.adapter.holder.AlbumMediaHolder
 import com.matisse.entity.Item
 
-class MyAlbumMediaAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MyAlbumMediaAdapter(val itemList: ArrayList<Item>,
+                          val clickItemCallback: ((Item) -> Unit)? = null,
+                          val checkedCallback:((Item, Boolean)->Unit)? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val VIEW_TYPE_CAPTURE = 0X01
@@ -28,7 +30,7 @@ class MyAlbumMediaAdapter(val itemList: ArrayList<Item>) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = itemList[position]
         if (holder is AlbumMediaHolder) {
-            holder.onBindViewHolder(item)
+            holder.onBindViewHolder(item, clickItemCallback, checkedCallback)
         }
     }
 
