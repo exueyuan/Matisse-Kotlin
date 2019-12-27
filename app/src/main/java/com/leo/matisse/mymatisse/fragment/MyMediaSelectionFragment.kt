@@ -40,13 +40,18 @@ class MyMediaSelectionFragment : Fragment() {
                 return@MyAlbumMediaAdapter
             }
             CheckedManager.addItem(item)
+
+            Glide.with(context!!)
+                    .asBitmap()
+                    .load(item.getContentUri())
+                    .into(iv_banner)
+            scrollToTop()
         } else {
             CheckedManager.removeItem(item)
         }
 
         updateAdapter()
 
-        scrollToTop()
     }, clickItemCallback = { item ->
         Glide.with(context!!)
                 .asBitmap()
