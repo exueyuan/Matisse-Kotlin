@@ -18,6 +18,7 @@ import com.matisse.entity.Item
 import com.matisse.internal.entity.SelectionSpec
 import com.matisse.model.AlbumCallbacks
 import com.matisse.model.AlbumMediaCollection
+import com.matisse.utils.PathUtils
 import com.matisse.widget.MediaGridInset
 import kotlinx.android.synthetic.main.fragment_my_media_selection.*
 
@@ -125,7 +126,7 @@ class MyMediaSelectionFragment : Fragment() {
         if (SelectionSpec.getInstance().lastChoosePictureIdsOrUris == null) return
 
         SelectionSpec.getInstance().lastChoosePictureIdsOrUris?.forEachIndexed { index, s ->
-            if (s == item.id.toString() || s == item.getContentUri().toString()) {
+            if (s == item.id.toString() || s == item.getContentUri().toString() || s == PathUtils.getPath(context!!, item.getContentUri()) ?: "1") {
                 CheckedManager.addItem(item)
                 SelectionSpec.getInstance().lastChoosePictureIdsOrUris!![index] = ""
             }
