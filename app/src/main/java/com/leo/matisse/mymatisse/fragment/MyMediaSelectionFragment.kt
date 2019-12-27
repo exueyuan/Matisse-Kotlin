@@ -92,5 +92,11 @@ class MyMediaSelectionFragment : Fragment() {
     }
 
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        albumMediaCollection.onDestroy()
+    }
+
+
     private fun isDataValid(cursor: Cursor?) = cursor != null && !cursor.isClosed
 }

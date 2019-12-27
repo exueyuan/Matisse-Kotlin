@@ -13,6 +13,7 @@ import com.leo.matisse.mymatisse.fragment.MyMediaSelectionFragment
 import com.matisse.entity.Album
 import com.matisse.entity.IncapableCause
 import com.matisse.model.AlbumCallbacks
+import com.matisse.ui.view.MediaSelectionFragment
 import com.matisse.utils.UIUtils
 import kotlinx.android.synthetic.main.activity_my_matisse.*
 
