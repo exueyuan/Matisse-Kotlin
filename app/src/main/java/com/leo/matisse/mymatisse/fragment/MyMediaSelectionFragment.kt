@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.bumptech.glide.Glide
+import com.google.android.material.appbar.AppBarLayout
 import com.leo.matisse.R
 import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.adapter.MyAlbumMediaAdapter
@@ -21,6 +23,9 @@ import com.matisse.model.AlbumMediaCollection
 import com.matisse.utils.PathUtils
 import com.matisse.widget.MediaGridInset
 import kotlinx.android.synthetic.main.fragment_my_media_selection.*
+import kotlinx.android.synthetic.main.fragment_my_media_selection.iv_banner
+import kotlinx.android.synthetic.main.fragment_my_media_selection.recyclerview
+import kotlinx.android.synthetic.main.fragment_my_media_selection_test.*
 
 class MyMediaSelectionFragment : Fragment() {
     //加载图片器
@@ -44,6 +49,7 @@ class MyMediaSelectionFragment : Fragment() {
                 .asBitmap()
                 .load(item.getContentUri())
                 .into(iv_banner)
+        scrollToTop()
     })
     private lateinit var album: Album
 
@@ -59,7 +65,7 @@ class MyMediaSelectionFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_my_media_selection, container, false)
+    ): View = inflater.inflate(R.layout.fragment_my_media_selection_test, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -132,6 +138,16 @@ class MyMediaSelectionFragment : Fragment() {
             }
         }
     }
+
+    fun scrollToTop() {
+        val layoutParams = app_bar_layout.layoutParams
+        val behavior = (layoutParams as CoordinatorLayout.LayoutParams).behavior
+        if (behavior is AppBarLayout.Behavior) {
+            behavior.topAndBottomOffset = 0
+        }
+    }
+
+
 
 
     private fun isDataValid(cursor: Cursor?) = cursor != null && !cursor.isClosed
