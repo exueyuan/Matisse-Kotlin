@@ -6,15 +6,17 @@ import android.database.Cursor
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import com.leo.matisse.BaseMatisseActivity
 import com.leo.matisse.R
 import com.leo.matisse.albumlist.AlbumListActivity
+import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.fragment.MyMediaSelectionFragment
 import com.matisse.entity.Album
 import com.matisse.entity.IncapableCause
 import com.matisse.model.AlbumCallbacks
-import com.matisse.ui.view.MediaSelectionFragment
 import com.matisse.utils.UIUtils
+import com.matisse.utils.handleIntentFromPreview
 import kotlinx.android.synthetic.main.activity_my_matisse.*
 
 class MyMatisseActivity : BaseMatisseActivity() {
@@ -28,6 +30,7 @@ class MyMatisseActivity : BaseMatisseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_matisse)
+        CheckedManager.clear()
         //加载相册
         albumLoadHelper = MyAlbumLoadHelper(this, object : AlbumCallbacks {
             override fun onAlbumStart() {
@@ -63,6 +66,15 @@ class MyMatisseActivity : BaseMatisseActivity() {
 
             val intent = Intent(this, AlbumListActivity::class.java)
             startActivityForResult(intent, REQUEST_CODE_ALBUM)
+        }
+
+        tv_complete.setOnClickListener {
+            if (CheckedManager.getAlreadySize() == 0) {
+                Toast.makeText(this, "请选择资源", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            handleIntentFromPreview(this, false, CheckedManager.checkedNumList)
         }
     }
 

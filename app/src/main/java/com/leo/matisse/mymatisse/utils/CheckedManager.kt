@@ -1,10 +1,9 @@
-package com.leo.matisse.mymatisse.Utils
+package com.leo.matisse.mymatisse.utils
 
 import com.matisse.entity.Item
 
 object CheckedManager {
-    private val checkedNumList = arrayListOf<Item>()
-
+    val checkedNumList = arrayListOf<Item>()
 
     fun getNum(item:Item):Int {
         for (i in 0 until checkedNumList.size) {

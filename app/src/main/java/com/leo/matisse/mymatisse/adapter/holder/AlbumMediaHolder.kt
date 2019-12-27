@@ -3,12 +3,11 @@ package com.leo.matisse.mymatisse.adapter.holder
 import android.content.Context
 import android.util.Log
 import android.view.View
-import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.leo.matisse.R
-import com.leo.matisse.mymatisse.Utils.CheckedManager
+import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.view.CheckNumView
 import com.matisse.entity.Item
 

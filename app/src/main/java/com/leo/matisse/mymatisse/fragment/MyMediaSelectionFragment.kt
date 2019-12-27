@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.leo.matisse.mymatisse.Utils.CheckedManager
+import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.adapter.MyAlbumMediaAdapter
 import com.matisse.R
 import com.matisse.entity.Album
