@@ -12,6 +12,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.leo.matisse.R
+import com.leo.matisse.mymatisse.MyMatisseActivity
 import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.adapter.MyAlbumMediaAdapter
 import com.matisse.entity.Album
@@ -44,6 +45,8 @@ class MyMediaSelectionFragment : Fragment() {
         }
 
         updateAdapter()
+
+        scrollToTop()
     }, clickItemCallback = { item ->
         Glide.with(context!!)
                 .asBitmap()
@@ -78,6 +81,21 @@ class MyMediaSelectionFragment : Fragment() {
         val spacing = resources.getDimensionPixelSize(R.dimen.media_grid_spacing)
         recyclerview.addItemDecoration(MediaGridInset(spanCount, spacing, false))
         recyclerview.adapter = adapter
+
+        //设置点击事件
+        tv_album.setOnClickListener {
+            if (activity is MyMatisseActivity && activity?.isFinishing == false) {
+                (activity as MyMatisseActivity).selectAlbum()
+            }
+        }
+
+        tv_complete.setOnClickListener {
+            if (activity is MyMatisseActivity && activity?.isFinishing == false) {
+                (activity as MyMatisseActivity).complete()
+            }
+        }
+
+        tv_album.text = album.displayName
 
 
         //设置获取图片
@@ -139,7 +157,7 @@ class MyMediaSelectionFragment : Fragment() {
         }
     }
 
-    fun scrollToTop() {
+    private fun scrollToTop() {
         val layoutParams = app_bar_layout.layoutParams
         val behavior = (layoutParams as CoordinatorLayout.LayoutParams).behavior
         if (behavior is AppBarLayout.Behavior) {

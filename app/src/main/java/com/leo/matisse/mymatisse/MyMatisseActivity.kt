@@ -48,7 +48,6 @@ class MyMatisseActivity : BaseMatisseActivity() {
                         allAlbum = Album.valueOf(cursor).apply {
                             onAlbumSelected(this)
                         }
-                        tv_album.text = allAlbum?.displayName
                     }
                 }
             }
@@ -57,7 +56,7 @@ class MyMatisseActivity : BaseMatisseActivity() {
             }
         })
 
-        tv_album.setOnClickListener {
+        /*tv_album.setOnClickListener {
             if (allAlbum?.isAll() == true && allAlbum?.isEmpty() == true) {
                 UIUtils.handleCause(this, IncapableCause(getString(com.matisse.R.string.empty_album)))
                 return@setOnClickListener
@@ -66,16 +65,16 @@ class MyMatisseActivity : BaseMatisseActivity() {
 
             val intent = Intent(this, AlbumListActivity::class.java)
             startActivityForResult(intent, REQUEST_CODE_ALBUM)
-        }
+        }*/
 
-        tv_complete.setOnClickListener {
+        /*tv_complete.setOnClickListener {
             if (CheckedManager.getAlreadySize() == 0) {
                 Toast.makeText(this, "请选择资源", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             handleIntentFromPreview(this, false, CheckedManager.checkedNumList)
-        }
+        }*/
     }
 
 
@@ -87,7 +86,6 @@ class MyMatisseActivity : BaseMatisseActivity() {
         } else {
             UIUtils.setViewVisible(false, empty_view)
             UIUtils.setViewVisible(true, fl_fragment)
-            tv_album.text = album.displayName
             val fragment = MyMediaSelectionFragment.newInstance(album)
             supportFragmentManager.beginTransaction()
                     .replace(fl_fragment.id, fragment, MyMediaSelectionFragment::class.java.simpleName)
@@ -114,5 +112,25 @@ class MyMatisseActivity : BaseMatisseActivity() {
                 onAlbumSelected(album)
             }
         }
+    }
+
+    fun selectAlbum() {
+        if (allAlbum?.isAll() == true && allAlbum?.isEmpty() == true) {
+            UIUtils.handleCause(this, IncapableCause(getString(com.matisse.R.string.empty_album)))
+            return
+        }
+
+
+        val intent = Intent(this, AlbumListActivity::class.java)
+        startActivityForResult(intent, REQUEST_CODE_ALBUM)
+    }
+
+    fun complete() {
+        if (CheckedManager.getAlreadySize() == 0) {
+            Toast.makeText(this, "请选择资源", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        handleIntentFromPreview(this, false, CheckedManager.checkedNumList)
     }
 }
