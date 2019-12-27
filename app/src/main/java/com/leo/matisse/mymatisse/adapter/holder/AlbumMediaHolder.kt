@@ -36,7 +36,7 @@ class AlbumMediaHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             clickItemCallback?.invoke(item)
         }
 
-        cnv_check.checkedCallback = { isChecked, num ->
+        cnv_check.checkedCallback = { isChecked ->
             checkedCallback?.invoke(item, isChecked)
         }
     }

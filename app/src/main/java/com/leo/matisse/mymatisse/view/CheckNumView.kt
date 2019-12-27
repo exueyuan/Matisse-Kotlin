@@ -30,7 +30,7 @@ class CheckNumView : FrameLayout {
                 tv_num.text = field.toString()
             }
         }
-    var checkedCallback: ((isChecked: Boolean, num: Int) -> Unit)? = null
+    var checkedCallback: ((isChecked: Boolean) -> Unit)? = null
 
 
     private fun init() {
@@ -38,12 +38,10 @@ class CheckNumView : FrameLayout {
         tv_num = rootView.findViewById(R.id.tv_num)
         tv_num.visibility = View.GONE
         rootView.setOnClickListener {
-            if (checkedNum == -1) {
-                checkedNum = 0
-                checkedCallback?.invoke(true, checkedNum)
+            if (checkedNum <= 0) {
+                checkedCallback?.invoke(true)
             } else {
-                checkedNum = -1
-                checkedCallback?.invoke(false, checkedNum)
+                checkedCallback?.invoke(false)
             }
         }
     }
