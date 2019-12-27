@@ -33,4 +33,8 @@ object CheckedManager {
     fun clear() {
         checkedNumList.clear()
     }
+
+    fun getAlreadySize():Int {
+        return checkedNumList.size
+    }
 }

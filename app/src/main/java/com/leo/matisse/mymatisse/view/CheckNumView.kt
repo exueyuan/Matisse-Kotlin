@@ -23,7 +23,7 @@ class CheckNumView : FrameLayout {
     var checkedNum = -1
         set(value) {
             field = value
-            if (field < 0) {
+            if (field <= 0) {
                 tv_num.visibility = View.GONE
             } else {
                 tv_num.visibility = View.VISIBLE

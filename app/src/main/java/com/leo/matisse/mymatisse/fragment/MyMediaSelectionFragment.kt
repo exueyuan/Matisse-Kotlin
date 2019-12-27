@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.leo.matisse.mymatisse.Utils.CheckedManager
 import com.leo.matisse.mymatisse.adapter.MyAlbumMediaAdapter
 import com.matisse.R
@@ -26,6 +27,10 @@ class MyMediaSelectionFragment : Fragment() {
     private val albumMediaList = arrayListOf<Item>()
     private val adapter: MyAlbumMediaAdapter = MyAlbumMediaAdapter(albumMediaList, checkedCallback = { item, isChecked ->
         if (isChecked) {
+            if (CheckedManager.getAlreadySize() >= SelectionSpec.getInstance().maxSelectable) {
+                Toast.makeText(context, "选取数有点多", Toast.LENGTH_SHORT).show()
+                return@MyAlbumMediaAdapter
+            }
             CheckedManager.addItem(item)
         } else {
             CheckedManager.removeItem(item)
