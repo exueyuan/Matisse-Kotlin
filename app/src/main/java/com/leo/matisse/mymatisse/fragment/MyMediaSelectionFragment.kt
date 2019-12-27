@@ -8,9 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.leo.matisse.R
 import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.adapter.MyAlbumMediaAdapter
-import com.matisse.R
 import com.matisse.entity.Album
 import com.matisse.entity.ConstValue
 import com.matisse.entity.Item
@@ -37,6 +38,11 @@ class MyMediaSelectionFragment : Fragment() {
         }
 
         updateAdapter()
+    }, clickItemCallback = { item ->
+        Glide.with(context!!)
+                .asBitmap()
+                .load(item.getContentUri())
+                .into(iv_banner)
     })
     private lateinit var album: Album
 
@@ -52,7 +58,7 @@ class MyMediaSelectionFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_media_selection, container, false)
+    ): View = inflater.inflate(R.layout.fragment_my_media_selection, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -65,6 +71,7 @@ class MyMediaSelectionFragment : Fragment() {
         val spacing = resources.getDimensionPixelSize(R.dimen.media_grid_spacing)
         recyclerview.addItemDecoration(MediaGridInset(spanCount, spacing, false))
         recyclerview.adapter = adapter
+
 
         //设置获取图片
         albumMediaCollection.onCreate(activity!!, object : AlbumCallbacks {
@@ -79,6 +86,13 @@ class MyMediaSelectionFragment : Fragment() {
                     val item = Item.valueOf(cursor)
                     //如果是初始化的话，那么要进行选择处理
                     setLastChooseItems(item)
+                    //初始化选取一张照片进行处理
+                    if (i == 0) {
+                        Glide.with(context!!)
+                                .asBitmap()
+                                .load(item.getContentUri())
+                                .into(iv_banner)
+                    }
                     albumMediaList.add(item)
                 }
                 adapter.notifyDataSetChanged()
