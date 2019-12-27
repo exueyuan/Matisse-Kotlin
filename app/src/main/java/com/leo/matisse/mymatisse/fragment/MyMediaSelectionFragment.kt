@@ -77,6 +77,8 @@ class MyMediaSelectionFragment : Fragment() {
                 for (i in 0 until if (isDataValid(cursor)) cursor.count else 0) {
                     cursor.moveToPosition(i)
                     val item = Item.valueOf(cursor)
+                    //如果是初始化的话，那么要进行选择处理
+                    setLastChooseItems(item)
                     albumMediaList.add(item)
                 }
                 adapter.notifyDataSetChanged()
@@ -100,6 +102,20 @@ class MyMediaSelectionFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         albumMediaCollection.onDestroy()
+    }
+
+    /**
+     * 初始化外部传入上次选中的图片
+     */
+    private fun setLastChooseItems(item: Item) {
+        if (SelectionSpec.getInstance().lastChoosePictureIdsOrUris == null) return
+
+        SelectionSpec.getInstance().lastChoosePictureIdsOrUris?.forEachIndexed { index, s ->
+            if (s == item.id.toString() || s == item.getContentUri().toString()) {
+                CheckedManager.addItem(item)
+                SelectionSpec.getInstance().lastChoosePictureIdsOrUris!![index] = ""
+            }
+        }
     }
 
 
