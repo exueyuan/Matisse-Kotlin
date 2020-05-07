@@ -3,7 +3,7 @@ package com.leo.matisse.mymatisse.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.leo.matisse.mymatisse.adapter.holder.AlbumMediaHolder
+import com.leo.matisse.mymatisse.holder.AlbumMediaHolder
 import com.matisse.entity.Item
 
 class MyAlbumMediaAdapter(val itemList: ArrayList<Item>,

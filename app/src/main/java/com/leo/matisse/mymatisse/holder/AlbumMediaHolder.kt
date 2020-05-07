@@ -1,4 +1,4 @@
-package com.leo.matisse.mymatisse.adapter.holder
+package com.leo.matisse.mymatisse.holder
 
 import android.content.Context
 import android.util.Log
