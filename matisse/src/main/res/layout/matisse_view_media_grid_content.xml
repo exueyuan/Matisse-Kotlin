@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         tools:ignore="ContentDescription" />
 
-    <com.matisse.widget.CheckView
+    <matisse.matisse.widget.CheckView
         android:id="@+id/check_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

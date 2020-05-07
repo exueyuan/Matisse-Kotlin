@@ -7,19 +7,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.os.Parcelable
 import android.util.Log
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.leo.matisse.BaseMatisseActivity
 import com.leo.matisse.R
 import com.leo.matisse.albumlist.adapter.AlbumListAdapter
 import com.leo.matisse.mymatisse.MyAlbumLoadHelper
-import com.matisse.entity.Album
+import matisse.mymatisse.entity.Album
 import com.matisse.model.AlbumCallbacks
-import com.matisse.widget.MediaGridInset
 import kotlinx.android.synthetic.main.activity_album_list.*
-import kotlinx.android.synthetic.main.fragment_my_media_selection.*
 
 class AlbumListActivity : BaseMatisseActivity() {
     companion object {
@@ -96,7 +92,7 @@ class AlbumListActivity : BaseMatisseActivity() {
             allFolderCount += album.getCount()
         }
         albumFolderList.add(
-                0, Album(allFolderCoverPath, getString(com.matisse.R.string.album_name_all), allFolderCount)
+                0, Album(allFolderCoverPath, getString(R.string.album_name_all), allFolderCount)
         )
         return albumFolderList
     }

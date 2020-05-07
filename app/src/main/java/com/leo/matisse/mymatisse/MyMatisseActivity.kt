@@ -12,11 +12,11 @@ import com.leo.matisse.R
 import com.leo.matisse.albumlist.AlbumListActivity
 import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.fragment.MyMediaSelectionFragment
-import com.matisse.entity.Album
+import matisse.mymatisse.entity.Album
 import com.matisse.entity.IncapableCause
 import com.matisse.model.AlbumCallbacks
-import com.matisse.utils.UIUtils
-import com.matisse.utils.handleIntentFromPreview
+import matisse.mymatisse.utils.UIUtils
+import matisse.mymatisse.utils.handleIntentFromPreview
 import kotlinx.android.synthetic.main.activity_my_matisse.*
 
 class MyMatisseActivity : BaseMatisseActivity() {
@@ -116,7 +116,7 @@ class MyMatisseActivity : BaseMatisseActivity() {
 
     fun selectAlbum() {
         if (allAlbum?.isAll() == true && allAlbum?.isEmpty() == true) {
-            UIUtils.handleCause(this, IncapableCause(getString(com.matisse.R.string.empty_album)))
+            UIUtils.handleCause(this, IncapableCause(getString(R.string.empty_album)))
             return
         }
 

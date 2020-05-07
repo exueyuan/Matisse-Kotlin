@@ -15,7 +15,7 @@ import com.leo.matisse.R
 import com.leo.matisse.mymatisse.MyMatisseActivity
 import com.leo.matisse.mymatisse.utils.CheckedManager
 import com.leo.matisse.mymatisse.adapter.MyAlbumMediaAdapter
-import com.matisse.entity.Album
+import matisse.mymatisse.entity.Album
 import com.matisse.entity.ConstValue
 import com.matisse.entity.Item
 import com.matisse.internal.entity.SelectionSpec
@@ -23,7 +23,6 @@ import com.matisse.model.AlbumCallbacks
 import com.matisse.model.AlbumMediaCollection
 import com.matisse.utils.PathUtils
 import com.matisse.widget.MediaGridInset
-import kotlinx.android.synthetic.main.fragment_my_media_selection.*
 import kotlinx.android.synthetic.main.fragment_my_media_selection.iv_banner
 import kotlinx.android.synthetic.main.fragment_my_media_selection.recyclerview
 import kotlinx.android.synthetic.main.fragment_my_media_selection_test.*

@@ -21,10 +21,10 @@ import com.matisse.entity.ConstValue
 import com.matisse.listener.NoticeConsumer
 import com.matisse.listener.OnCheckedListener
 import com.matisse.listener.OnSelectedListener
-import com.matisse.utils.PhotoMetadataUtils
+import matisse.mymatisse.utils.PhotoMetadataUtils
 import com.matisse.utils.Platform
-import com.matisse.utils.UIUtils
-import com.matisse.widget.CropImageView
+import matisse.mymatisse.utils.UIUtils
+import matisse.mymatisse.widget.CropImageView
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 

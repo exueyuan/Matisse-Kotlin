@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.leo.matisse.R
-import com.matisse.entity.Album
+import matisse.mymatisse.entity.Album
 
 class AlbumItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

@@ -4,7 +4,7 @@ package com.leo.matisse.albumlist.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.leo.matisse.albumlist.holder.AlbumItemHolder
-import com.matisse.entity.Album
+import matisse.mymatisse.entity.Album
 
 class AlbumListAdapter(val albumList: ArrayList<Album>,
                        val clickCallback:((Album)->Unit)? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

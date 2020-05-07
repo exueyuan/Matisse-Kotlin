@@ -16,14 +16,12 @@
 package com.leo.matisse
 
 import android.content.Context
-import com.leo.matisse.R
 import com.matisse.MimeType
 import com.matisse.MimeTypeManager
 import com.matisse.entity.IncapableCause
 import com.matisse.entity.Item
 import com.matisse.filter.Filter
-import com.matisse.utils.PhotoMetadataUtils
-import java.util.*
+import matisse.mymatisse.utils.PhotoMetadataUtils
 
 class GifSizeFilter(private val mMinWidth: Int, private val mMinHeight: Int, private val mMaxSize: Int) : Filter() {
 

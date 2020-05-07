@@ -5,7 +5,7 @@ import com.matisse.MimeTypeManager
 import com.matisse.entity.IncapableCause
 import com.matisse.entity.Item
 import com.matisse.filter.Filter
-import com.matisse.utils.PhotoMetadataUtils
+import matisse.mymatisse.utils.PhotoMetadataUtils
 
 /**
  * desc：不允许选择大于itemSize字节的图片</br>
