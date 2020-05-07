@@ -25,9 +25,9 @@ import com.matisse.ui.adapter.FolderItemMediaAdapter
 import com.matisse.ui.view.FolderBottomSheet
 import com.matisse.ui.view.MediaSelectionFragment
 import com.matisse.utils.*
-import kotlinx.android.synthetic.main.activity_matisse.*
-import kotlinx.android.synthetic.main.include_view_bottom.*
-import kotlinx.android.synthetic.main.include_view_navigation.*
+import kotlinx.android.synthetic.main.matisse_activity_matisse.*
+import kotlinx.android.synthetic.main.matisse_include_view_bottom.*
+import kotlinx.android.synthetic.main.matisse_include_view_navigation.*
 
 /**
  * desc：入口</br>
@@ -60,7 +60,7 @@ class MatisseActivity : BaseActivity(),
         }
     }
 
-    override fun getResourceLayoutId() = R.layout.activity_matisse
+    override fun getResourceLayoutId() = R.layout.matisse_activity_matisse
 
     override fun setViewData() {
         button_apply.setText(getAttrString(R.attr.Media_Album_text, R.string.album_name_all))

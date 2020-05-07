@@ -36,14 +36,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:showIn="@layout/activity_matisse">
+        tools:showIn="@layout/matisse_activity_matisse">
 
         <com.matisse.widget.CheckRadioView
             android:id="@+id/original"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_preview_radio_off" />
+            android:src="@drawable/matisse_ic_preview_radio_off" />
 
         <TextView
             style="@style/singleLineText"

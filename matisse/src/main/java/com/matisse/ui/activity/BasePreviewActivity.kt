@@ -16,8 +16,8 @@ import com.matisse.ui.adapter.PreviewPagerAdapter
 import com.matisse.ui.view.PreviewItemFragment
 import com.matisse.utils.*
 import com.matisse.widget.CheckView
-import kotlinx.android.synthetic.main.activity_media_preview.*
-import kotlinx.android.synthetic.main.include_view_bottom.*
+import kotlinx.android.synthetic.main.matisse_activity_media_preview.*
+import kotlinx.android.synthetic.main.matisse_include_view_bottom.*
 
 /**
  * desc：BasePreviewActivity</br>
@@ -52,7 +52,7 @@ open class BasePreviewActivity : BaseActivity(), View.OnClickListener,
         }
     }
 
-    override fun getResourceLayoutId() = R.layout.activity_media_preview
+    override fun getResourceLayoutId() = R.layout.matisse_activity_media_preview
 
     override fun setViewData() {
         button_preview.setText(getAttrString(R.attr.Preview_Back_text, R.string.button_back))

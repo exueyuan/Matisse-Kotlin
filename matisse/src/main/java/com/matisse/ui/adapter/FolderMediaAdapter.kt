@@ -3,7 +3,6 @@ package com.matisse.ui.adapter
 import android.content.Context
 import android.database.Cursor
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import com.matisse.R
 import com.matisse.entity.Album
 import com.matisse.internal.entity.SelectionSpec
 import com.matisse.widget.CheckRadioView
-import java.io.File
 
 class FolderMediaAdapter(var context: Context, var mCurrentPosition: Int) :
     RecyclerViewCursorAdapter<FolderMediaAdapter.FolderViewHolder>(null) {
@@ -51,7 +49,7 @@ class FolderMediaAdapter(var context: Context, var mCurrentPosition: Int) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = FolderViewHolder(
         parent,
-        LayoutInflater.from(parent.context).inflate(R.layout.item_album_folder, parent, false)
+        LayoutInflater.from(parent.context).inflate(R.layout.matisse_item_album_folder, parent, false)
     )
 
     inner class FolderViewHolder(private val mParentView: ViewGroup, itemView: View) :

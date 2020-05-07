@@ -7,7 +7,7 @@ import com.matisse.entity.Item
 import com.matisse.model.AlbumCallbacks
 import com.matisse.model.AlbumMediaCollection
 import com.matisse.ui.adapter.PreviewPagerAdapter
-import kotlinx.android.synthetic.main.activity_media_preview.*
+import kotlinx.android.synthetic.main.matisse_activity_media_preview.*
 
 /**
  * Created by liubo on 2018/9/11.

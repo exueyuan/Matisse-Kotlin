@@ -47,7 +47,7 @@ class AlbumMediaAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             VIEW_TYPE_CAPTURE -> {
-                val v = layoutInflater.inflate(R.layout.item_photo_capture, parent, false)
+                val v = layoutInflater.inflate(R.layout.matisse_item_photo_capture, parent, false)
                 CaptureViewHolder(v).run {
                     itemView.setOnClickListener {
                         if (it.context is OnPhotoCapture) (it.context as OnPhotoCapture).capture()
@@ -56,7 +56,7 @@ class AlbumMediaAdapter(
                 }
             }
             else -> {
-                val v = layoutInflater.inflate(R.layout.item_media_grid, parent, false)
+                val v = layoutInflater.inflate(R.layout.matisse_item_media_grid, parent, false)
                 MediaViewHolder(v)
             }
         }

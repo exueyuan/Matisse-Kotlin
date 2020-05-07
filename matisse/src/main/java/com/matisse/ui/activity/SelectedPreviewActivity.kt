@@ -6,7 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.matisse.entity.ConstValue
 import com.matisse.entity.Item
-import kotlinx.android.synthetic.main.activity_media_preview.*
+import kotlinx.android.synthetic.main.matisse_activity_media_preview.*
 
 /**
  * desc：图片选中预览</br>

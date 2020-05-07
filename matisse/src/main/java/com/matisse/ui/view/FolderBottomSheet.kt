@@ -40,7 +40,7 @@ class FolderBottomSheet : BottomSheetDialogFragment() {
 
     override fun getContentView(inflater: LayoutInflater, container: ViewGroup): View {
         if (kParentView == null) {
-            kParentView = inflater.inflate(R.layout.dialog_bottom_sheet_folder, container, false)
+            kParentView = inflater.inflate(R.layout.matisse_dialog_bottom_sheet_folder, container, false)
             setDefaultHeight(UIUtils.getScreenHeight(context!!) / 2)
             initView()
         } else {

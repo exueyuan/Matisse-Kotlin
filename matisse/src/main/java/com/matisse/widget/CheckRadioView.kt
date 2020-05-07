@@ -36,11 +36,11 @@ class CheckRadioView : AppCompatImageView {
 
     fun setChecked(enable: Boolean) {
         if (enable) {
-            setImageResource(R.drawable.ic_preview_radio_on)
+            setImageResource(R.drawable.matisse_ic_preview_radio_on)
             mDrawable = drawable
             mDrawable!!.setColorFilter(mSelectedColor, PorterDuff.Mode.SRC_IN)
         } else {
-            setImageResource(R.drawable.ic_preview_radio_off)
+            setImageResource(R.drawable.matisse_ic_preview_radio_off)
             mDrawable = drawable
             mDrawable!!.setColorFilter(mUnSelectUdColor, PorterDuff.Mode.SRC_IN)
         }

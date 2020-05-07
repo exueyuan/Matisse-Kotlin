@@ -69,7 +69,7 @@ class CheckView : View {
         strokePaint?.color = color
 
         checkDrawable = ResourcesCompat.getDrawable(
-            context.resources, R.drawable.ic_check_white_18dp, context.theme
+            context.resources, R.drawable.matisse_ic_check_white_18dp, context.theme
         )
     }
 

@@ -30,7 +30,7 @@ abstract class BottomSheetDialogFragment : AppCompatDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        coordinator = inflater.inflate(R.layout.dialog_bottom_sheet, container) as ViewGroup
+        coordinator = inflater.inflate(R.layout.matisse_dialog_bottom_sheet, container) as ViewGroup
         bottomSheet = coordinator?.findViewById(R.id.design_bottom_sheet)
 
         kBehavior = BottomSheetBehavior.from(bottomSheet)
@@ -88,7 +88,7 @@ abstract class BottomSheetDialogFragment : AppCompatDialogFragment() {
     private fun setBottomLayout() {
         val win = dialog?.window
         if (win != null) {
-            win.setBackgroundDrawableResource(R.drawable.transparent)
+            win.setBackgroundDrawableResource(R.drawable.matisse_transparent)
             win.decorView.setPadding(0, 0, 0, 0)
             val lp = win.attributes
             lp.width = WindowManager.LayoutParams.MATCH_PARENT

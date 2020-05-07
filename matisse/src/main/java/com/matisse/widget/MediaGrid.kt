@@ -12,7 +12,7 @@ import com.matisse.R
 import com.matisse.entity.Item
 import com.matisse.internal.entity.SelectionSpec
 import com.matisse.utils.UIUtils
-import kotlinx.android.synthetic.main.view_media_grid_content.view.*
+import kotlinx.android.synthetic.main.matisse_view_media_grid_content.view.*
 
 class MediaGrid : SquareFrameLayout, View.OnClickListener {
 
@@ -25,7 +25,7 @@ class MediaGrid : SquareFrameLayout, View.OnClickListener {
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context, attrs, defStyleAttr
     ) {
-        LayoutInflater.from(context).inflate(R.layout.view_media_grid_content, this, true)
+        LayoutInflater.from(context).inflate(R.layout.matisse_view_media_grid_content, this, true)
 
         media_thumbnail.setOnClickListener(this)
         check_view.setOnClickListener(this)

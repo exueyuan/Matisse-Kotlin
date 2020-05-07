@@ -1,10 +1,7 @@
 package com.matisse.ui.adapter
 
 import android.content.Context
-import android.database.Cursor
 import android.graphics.drawable.Drawable
-import android.net.Uri
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.matisse.R
 import com.matisse.entity.Album
-import com.matisse.entity.Item
 import com.matisse.internal.entity.SelectionSpec
 import com.matisse.widget.CheckRadioView
-import java.io.File
 
 class FolderItemMediaAdapter(var context: Context, var mCurrentPosition: Int) :
     RecyclerView.Adapter<FolderItemMediaAdapter.FolderViewHolder>() {
@@ -54,7 +49,7 @@ class FolderItemMediaAdapter(var context: Context, var mCurrentPosition: Int) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = FolderViewHolder(
-        parent, inflater.inflate(R.layout.item_album_folder, parent, false)
+        parent, inflater.inflate(R.layout.matisse_item_album_folder, parent, false)
     )
 
     override fun getItemCount() = albumList.size

@@ -19,7 +19,7 @@ import com.matisse.model.SelectedItemCollection
 import com.matisse.ui.adapter.AlbumMediaAdapter
 import com.matisse.utils.UIUtils
 import com.matisse.widget.MediaGridInset
-import kotlinx.android.synthetic.main.fragment_media_selection.*
+import kotlinx.android.synthetic.main.matisse_fragment_media_selection.*
 
 class MediaSelectionFragment : Fragment(), AlbumCallbacks, AlbumMediaAdapter.CheckStateListener,
     AlbumMediaAdapter.OnMediaClickListener {
@@ -57,7 +57,7 @@ class MediaSelectionFragment : Fragment(), AlbumCallbacks, AlbumMediaAdapter.Che
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_media_selection, container, false)
+    ): View = inflater.inflate(R.layout.matisse_fragment_media_selection, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

@@ -8,14 +8,14 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/include_view_navigation"
+        layout="@layout/matisse_include_view_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
         android:id="@+id/bottom_view"
-        layout="@layout/include_view_bottom"
+        layout="@layout/matisse_include_view_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent" />
