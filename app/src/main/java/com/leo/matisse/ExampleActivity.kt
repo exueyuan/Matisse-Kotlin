@@ -35,7 +35,7 @@ import matisse.mymatisse.utils.gotoImageCrop
 import matisse.mymatisse.widget.CropImageView
 import matisse.mymatisse.widget.IncapableDialog
 import com.tbruyelle.rxpermissions2.RxPermissions
-import kotlinx.android.synthetic.main.activity_example.*
+import kotlinx.android.synthetic.main.model_matisse_activity_example.*
 
 class ExampleActivity : AppCompatActivity(), View.OnClickListener {
     private var showType = MimeTypeManager.ofAll()
@@ -59,7 +59,7 @@ class ExampleActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_example)
+        setContentView(R.layout.model_matisse_activity_example)
         initListener()
     }
 

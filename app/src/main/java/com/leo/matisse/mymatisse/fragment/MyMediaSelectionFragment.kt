@@ -23,9 +23,9 @@ import com.matisse.model.AlbumCallbacks
 import com.matisse.model.AlbumMediaCollection
 import com.matisse.utils.PathUtils
 import com.matisse.widget.MediaGridInset
-import kotlinx.android.synthetic.main.fragment_my_media_selection.iv_banner
-import kotlinx.android.synthetic.main.fragment_my_media_selection.recyclerview
-import kotlinx.android.synthetic.main.fragment_my_media_selection_test.*
+import kotlinx.android.synthetic.main.model_matisse_fragment_my_media_selection.iv_banner
+import kotlinx.android.synthetic.main.model_matisse_fragment_my_media_selection.recyclerview
+import kotlinx.android.synthetic.main.model_matisse_fragment_my_media_selection_test.*
 
 class MyMediaSelectionFragment : Fragment() {
     //加载图片器
@@ -72,7 +72,7 @@ class MyMediaSelectionFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_my_media_selection_test, container, false)
+    ): View = inflater.inflate(R.layout.model_matisse_fragment_my_media_selection_test, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

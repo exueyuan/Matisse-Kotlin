@@ -17,7 +17,7 @@ import com.matisse.entity.IncapableCause
 import com.matisse.model.AlbumCallbacks
 import matisse.mymatisse.utils.UIUtils
 import matisse.mymatisse.utils.handleIntentFromPreview
-import kotlinx.android.synthetic.main.activity_my_matisse.*
+import kotlinx.android.synthetic.main.model_matisse_activity_my_matisse.*
 
 class MyMatisseActivity : BaseMatisseActivity() {
     companion object {
@@ -29,7 +29,7 @@ class MyMatisseActivity : BaseMatisseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_matisse)
+        setContentView(R.layout.model_matisse_activity_my_matisse)
         CheckedManager.clear()
         //加载相册
         albumLoadHelper = MyAlbumLoadHelper(this, object : AlbumCallbacks {

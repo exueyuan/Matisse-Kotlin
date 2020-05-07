@@ -15,7 +15,7 @@ import com.leo.matisse.albumlist.adapter.AlbumListAdapter
 import com.leo.matisse.mymatisse.MyAlbumLoadHelper
 import matisse.mymatisse.entity.Album
 import com.matisse.model.AlbumCallbacks
-import kotlinx.android.synthetic.main.activity_album_list.*
+import kotlinx.android.synthetic.main.model_matisse_activity_album_list.*
 
 class AlbumListActivity : BaseMatisseActivity() {
     companion object {
@@ -34,7 +34,7 @@ class AlbumListActivity : BaseMatisseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_album_list)
+        setContentView(R.layout.model_matisse_activity_album_list)
 
         rv_album_list.layoutManager = LinearLayoutManager(this)
         rv_album_list.adapter = albumListAdapter

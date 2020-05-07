@@ -26,13 +26,13 @@ import com.matisse.utils.Platform
 import matisse.mymatisse.utils.UIUtils
 import matisse.mymatisse.widget.CropImageView
 import com.tbruyelle.rxpermissions2.RxPermissions
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.model_matisse_activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.model_matisse_activity_main)
 
         findViewById<AppCompatButton>(R.id.btn_media_store).setOnClickListener {
             RxPermissions(this@MainActivity)

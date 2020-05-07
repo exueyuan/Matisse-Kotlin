@@ -34,7 +34,7 @@ class CheckNumView : FrameLayout {
 
 
     private fun init() {
-        val rootView = View.inflate(context, R.layout.view_check_num, this)
+        val rootView = View.inflate(context, R.layout.model_matisse_view_check_num, this)
         tv_num = rootView.findViewById(R.id.tv_num)
         tv_num.visibility = View.GONE
         rootView.setOnClickListener {

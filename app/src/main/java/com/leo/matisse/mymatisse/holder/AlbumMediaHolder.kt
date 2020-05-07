@@ -16,7 +16,7 @@ class AlbumMediaHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     companion object {
         fun getItemView(context: Context): View {
-            return View.inflate(context, R.layout.holder_my_album_media, null)
+            return View.inflate(context, R.layout.model_matisse_holder_my_album_media, null)
         }
     }
 
