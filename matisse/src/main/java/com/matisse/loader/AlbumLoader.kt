@@ -33,6 +33,7 @@ class AlbumLoader(context: Context, selection: String, selectionArgs: Array<out 
 
         const val COLUMN_URI = "uri"
 
+
         val COLUMNS = arrayOf(
             MediaStore.Files.FileColumns._ID,
             BUCKET_ID, BUCKET_DISPLAY_NAME,
