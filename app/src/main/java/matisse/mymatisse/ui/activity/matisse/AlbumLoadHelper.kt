@@ -2,7 +2,7 @@ package matisse.mymatisse.ui.activity.matisse
 
 import android.os.Bundle
 import com.matisse.model.AlbumCallbacks
-import com.matisse.model.AlbumCollection
+import matisse.mymatisse.model.AlbumCollection
 import matisse.mymatisse.MatisseActivity
 
 class AlbumLoadHelper(

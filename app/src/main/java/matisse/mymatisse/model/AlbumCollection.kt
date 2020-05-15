@@ -1,4 +1,4 @@
-package com.matisse.model
+package matisse.mymatisse.model
 
 import android.content.Context
 import android.database.Cursor
@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.Loader
 import com.matisse.loader.AlbumLoader
+import com.matisse.model.AlbumCallbacks
 import java.lang.ref.WeakReference
 
 class AlbumCollection : LoaderManager.LoaderCallbacks<Cursor> {

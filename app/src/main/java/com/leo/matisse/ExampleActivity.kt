@@ -271,12 +271,12 @@ class ExampleActivity : AppCompatActivity(), View.OnClickListener {
             })
             .setStatusBarFuture(object : MFunction<BaseActivity> {
                 override fun accept(params: BaseActivity, view: View?) {
-                    // 外部设置状态栏
+                    /*// 外部设置状态栏
                     ImmersionBar.with(params)?.run {
                         statusBarDarkFont(true)
                         view?.apply { titleBar(this) }
                         init()
-                    }
+                    }*/
 
                     // 外部可隐藏Matisse界面中的View
 //                    view?.visibility = if (isDarkStatus) View.VISIBLE else View.GONE

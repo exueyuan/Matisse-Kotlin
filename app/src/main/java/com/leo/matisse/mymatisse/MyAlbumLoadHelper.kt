@@ -3,7 +3,7 @@ package com.leo.matisse.mymatisse
 import android.os.Bundle
 import com.leo.matisse.BaseMatisseActivity
 import com.matisse.model.AlbumCallbacks
-import com.matisse.model.AlbumCollection
+import matisse.mymatisse.model.AlbumCollection
 
 class MyAlbumLoadHelper(
         private var activity: BaseMatisseActivity, private var albumLoadCallback: AlbumCallbacks
