@@ -181,10 +181,10 @@ class AlbumLoader(context: Context, selection: String, selectionArgs: Array<out 
                     val count = countMap[bucketId]
 
                     otherAlbums.addRow(
-                        arrayOf<String>(
-                            fileId.toString(), bucketId.toString(), bucketDisplayName,
-                            mimeType, uri.toString(), count.toString()
-                        )
+                            arrayOf<String>(
+                                    fileId.toString(), bucketId.toString(), bucketDisplayName ?: "",
+                                    mimeType, uri.toString(), count.toString()
+                            )
                     )
                     done.add(bucketId)
 
