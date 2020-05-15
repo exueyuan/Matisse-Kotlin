@@ -181,7 +181,7 @@ class AlbumLoader(context: Context, selection: String, selectionArgs: Array<out 
 
                     otherAlbums.addRow(
                         arrayOf<String>(
-                            fileId.toString(), bucketId.toString(), bucketDisplayName,
+                            fileId.toString(), bucketId.toString(), bucketDisplayName?:"",
                             mimeType, uri.toString(), count.toString()
                         )
                     )
